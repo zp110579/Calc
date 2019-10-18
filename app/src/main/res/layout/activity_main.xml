@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="16dp"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.zee.view.ZxEditText
+            android:id="@+id/tv_input_text"
+            style="@style/btn_cale"
+            android:hint="请输入金额"
+            app:zv_borderWidth="1dp"
+            app:zv_radius="8dp" />
+
+        <com.zee.view.ZxTextView
+            android:id="@+id/tv_input_sure"
+            style="@style/btn_start"
+            android:text="计算" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <com.zee.view.ZxTextView
+            android:id="@+id/tv_btc_up"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:textSize="10sp"
+            app:zv_borderColor="#f00"
+            app:zv_borderWidth="1dp" />
+
+        <com.zee.view.ZxTextView
+            android:id="@+id/tv_btc_down"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:textSize="10sp"
+            app:zv_borderColor="#255325"
+            app:zv_borderWidth="1dp" />
+
+    </LinearLayout>
+
+    <com.zee.view.ZxLinearLayout
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.zee.view.ZxEditText
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                app:zv_borderColor="#f00"
+                app:zv_borderWidth="1dp"
+                app:zv_radius="8dp" />
+
+            <com.zee.view.ZxEditText
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                app:zv_borderColor="#f00"
+                app:zv_borderWidth="1dp"
+                app:zv_radius="8dp" />
+
+            <com.zee.view.ZxTextView
+                style="@style/btn_start"
+                android:layout_marginLeft="10dp"
+                android:text="计算" />
+        </LinearLayout>
+
+        <com.zee.view.ZxTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:text="jiegou"
+            app:zv_borderColor="#f00"
+            app:zv_borderWidth="1dp"
+            app:zv_radius="8dp" />
+    </com.zee.view.ZxLinearLayout>
+</LinearLayout>
