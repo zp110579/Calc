@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
 
     fun value(value: Double, type: Int): java.lang.StringBuilder {
         val builder = StringBuilder();
-        for (i in 1..100) {
+        for (i in 1..400) {
             val tempValue = BigDecimal(i * 0.01 * type)
 
             builder.append(
