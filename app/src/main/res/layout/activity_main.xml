@@ -20,9 +20,16 @@
             android:id="@+id/tv_input_text"
             style="@style/btn_cale"
             android:hint="请输入金额"
-            android:textSize="16dp"
-            app:zv_borderWidth="1dp"
-            app:zv_radius="8dp" />
+
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:imeOptions="actionNext"
+            android:maxLength="18"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:textColor="#333333"
+            android:textColorHint="#BEBEBE"
+            android:textSize="14sp" />
 
         <com.zee.view.ZxTextView
             android:id="@+id/tv_input_sure"

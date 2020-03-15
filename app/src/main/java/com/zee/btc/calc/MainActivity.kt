@@ -2,6 +2,8 @@ package com.zee.btc.calc
 
 import android.os.Bundle
 import android.text.method.ScrollingMovementMethod
+import android.view.KeyEvent
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.zee.utils.UIUtils
 import kotlinx.android.synthetic.main.activity_main.*
@@ -22,6 +24,21 @@ class MainActivity : AppCompatActivity() {
                 UIUtils.showToastShort("请输入正确值")
             }
         }
+
+//         etSearch.setOnEditorActionListener((v, actionId, event) -> {
+//            startSearchKey();
+//            return true;
+//        });
+        tv_input_text.setOnEditorActionListener(object : TextView.OnEditorActionListener {
+            override fun onEditorAction(p0: TextView?, p1: Int, p2: KeyEvent?): Boolean {
+                tv_input_sure.callOnClick()
+                return true
+            }
+
+        })
+        tv_input_text.postDelayed({
+            UIUtils.showKeyboard(tv_input_text)
+        }, 200)
     }
 
     //涨
@@ -39,7 +56,7 @@ class MainActivity : AppCompatActivity() {
     fun value(value: Double, type: Int): java.lang.StringBuilder {
         val builder = StringBuilder();
         for (i in 1..400) {
-            val tempValue = BigDecimal(i * 0.01 * type)
+            val tempValue = BigDecimal(i * 0.001 * type)
 
             builder.append(
                 formatDouble(tempValue.multiply(BigDecimal(100)), 6) + "%====>" + upValue(
