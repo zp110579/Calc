@@ -1,10 +1,13 @@
 package com.zee.btc.calc
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.text.method.ScrollingMovementMethod
 import android.view.KeyEvent
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.zee.log.ZLog
 import com.zee.utils.UIUtils
 import kotlinx.android.synthetic.main.activity_main.*
 import java.math.BigDecimal
@@ -19,16 +22,29 @@ class MainActivity : AppCompatActivity() {
             try {
                 val value = tv_input_text.text.toString().toDouble();
                 upValue(value)
-                down(value)
+//                down(value)
             } catch (e: Exception) {
                 UIUtils.showToastShort("请输入正确值")
             }
         }
+        tv_input_text.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
 
-//         etSearch.setOnEditorActionListener((v, actionId, event) -> {
-//            startSearchKey();
-//            return true;
-//        });
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                try {
+                    val value = tv_input_text.text.toString().toDouble();
+                    upValue(value)
+//                    down(value)
+                } catch (e: Exception) {
+                    UIUtils.showToastShort("请输入正确值")
+                }
+            }
+
+        })
         tv_input_text.setOnEditorActionListener(object : TextView.OnEditorActionListener {
             override fun onEditorAction(p0: TextView?, p1: Int, p2: KeyEvent?): Boolean {
                 tv_input_sure.callOnClick()
@@ -48,10 +64,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     //跌
-    fun down(value: Double) {
-        tv_btc_down.text = value(value, -1);
-        tv_btc_down.setMovementMethod(ScrollingMovementMethod.getInstance());
-    }
+//    fun down(value: Double) {
+//        tv_btc_down.text = value(value, -1);
+//        tv_btc_down.setMovementMethod(ScrollingMovementMethod.getInstance());
+//    }
 
     fun value(value: Double, type: Int): java.lang.StringBuilder {
         val builder = StringBuilder();
@@ -61,7 +77,7 @@ class MainActivity : AppCompatActivity() {
             builder.append(
                 formatDouble(tempValue.multiply(BigDecimal(100)), 6) + "%====>" + upValue(
                     BigDecimal(value),
-                    tempValue
+                    tempValue.add(BigDecimal(0.004))
                 )
             ).append("\n")
         }

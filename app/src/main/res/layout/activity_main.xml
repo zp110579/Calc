@@ -19,10 +19,11 @@
         <com.zee.view.ZxEditText
             android:id="@+id/tv_input_text"
             style="@style/btn_cale"
-            android:hint="请输入金额"
-
+            android:layout_height="40dp"
             android:focusable="true"
+
             android:focusableInTouchMode="true"
+            android:hint="请输入金额"
             android:imeOptions="actionNext"
             android:maxLength="18"
             android:maxLines="1"
@@ -57,6 +58,7 @@
             app:zv_borderWidth="1dp" />
 
         <com.zee.view.ZxTextView
+            android:visibility="gone"
             android:id="@+id/tv_btc_down"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
